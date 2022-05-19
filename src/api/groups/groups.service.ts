@@ -10,7 +10,7 @@ export const add = (name: string, desc: string) => {
         });
 };
 
-export const sendRequest = (id: string) => {
+export const sendRequest = (id: number) => {
     // @ts-ignore
     return axios.post(API_URL + "sendRequest/"+id, {}, { headers: authHeader() })
         .then((response) => {
@@ -18,9 +18,18 @@ export const sendRequest = (id: string) => {
         });
 };
 
-export const acceptStudent = (user: string, id: string) => {
+export const acceptStudent = (user: string, id: number) => {
     // @ts-ignore
     return axios.post(API_URL + "acceptStudent", {user, id}, { headers: authHeader() })
+        .then((response) => {
+            return response.data;
+        });
+};
+
+//administrator проверка админа на сервере
+export const changeGroup = (id: number, value: boolean) => {
+    // @ts-ignore
+    return axios.post(API_URL + "changeGroup", {id, value}, { headers: authHeader() })
         .then((response) => {
             return response.data;
         });
