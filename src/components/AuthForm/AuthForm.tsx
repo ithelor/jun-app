@@ -2,7 +2,9 @@ import React from 'react'
 
 import './AuthForm.module.scss'
 
+import { useNavigate } from "react-router-dom";
 import {login, register} from "../../api/auth/auth.service";
+import UserProvider from "./UserProvider";
 
 const AuthForm = () => {
     const [isNew, setIsNew] = React.useState(true);
@@ -12,12 +14,19 @@ const AuthForm = () => {
     const [lastName, setLastName] = React.useState('');
     const [logins, setLogins] = React.useState('');
 
+    const navigate = useNavigate();
+
+    const pushToProfile = () => {
+        navigate("/profile");
+    }
+
     const handleLogin = (formValue: { e: any, username: string; password: string }) => {
         const { e, username, password } = formValue;
-        e.preventDefault();
+        //e.preventDefault();
         login(username, password).then(
             () => {
-                console.log('succeed')
+                pushToProfile();
+                console.log('succeed');
             },
             (error) => {
                 const resMessage =
@@ -31,9 +40,10 @@ const AuthForm = () => {
     }
     const handleRegister = (formValue: { e: any, name: string; lastName: string; login: string; email: string, password: string }) => {
         const { e, name, lastName, login, email, password} = formValue;
-        e.preventDefault();
+        //e.preventDefault();
         register(login, email, password, password, name, lastName, "empty").then(
             () => {
+                handleLogin({e,username: login, password});
                 console.log('succeed')
             },
             (error) => {
