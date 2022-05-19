@@ -5,19 +5,19 @@ import Tabs from 'components/Tabs'
 
 import { UserContext } from 'contexts/UserContext'
 
-import IUser from 'interfaces/User.interface'
+// import IUser from 'interfaces/User.interface'
 
 import styles from './Profile.module.scss'
 
 const Profile = () => {
-  const user: IUser = React.useContext(UserContext)
+  const { user, setUser } = React.useContext(UserContext)
 
   return (
     <div className="content">
       <section className={styles.container}>
         <span>
           <UserIcon />
-          {/* {user.usrDTO.name} */}
+          {user ? user.userDto.name : 'Юзернэйм'}
         </span>
         <Tabs />
       </section>

@@ -1,5 +1,5 @@
 export default interface IUser {
-  usrDTO: {
+  userDto: {
     login: string
     email: string
     name: string

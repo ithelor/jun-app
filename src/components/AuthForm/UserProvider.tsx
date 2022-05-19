@@ -13,15 +13,14 @@ const UserProvider = (props: ISidebarProvider) => {
   const [user, setUser] = React.useState<IUser>()
 
   React.useEffect(() => {
-    function fetchData() {
-      const newUser = getCurrentUser()
+    const fetchData = () => {
+      setUser(JSON.parse(getCurrentUser()))
 
-      setUser(newUser)
-      console.log(newUser)
+      console.log(JSON.parse(getCurrentUser()))
     }
 
     fetchData()
-  }, [])
+  }, [setUser])
 
   return <UserContext.Provider value={{ user, setUser }}>{props.children}</UserContext.Provider>
 }
