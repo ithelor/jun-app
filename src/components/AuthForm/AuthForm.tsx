@@ -19,10 +19,8 @@ const AuthForm = () => {
             <button type="submit">Зарегистрироваться</button>
           </div>
           <p>
-            Уже зарегистрированы?{' '}
-            <NavLink to="/sign-in" onClick={() => setIsNew(false)}>
-              войти
-            </NavLink>
+            Уже зарегистрированы?
+            <span onClick={() => setIsNew(false)}> войти</span>
           </p>
         </>
       ) : (
@@ -34,10 +32,8 @@ const AuthForm = () => {
             <button type="submit">Войти</button>
           </div>
           <p>
-            Нет аккаунта?{' '}
-            <NavLink to="/sign-up" onClick={() => setIsNew(true)}>
-              зарегистрироваться
-            </NavLink>
+            Нет аккаунта?
+            <span onClick={() => setIsNew(true)}> зарегистрироваться</span>
           </p>
         </>
       )}

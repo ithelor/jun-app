@@ -56,7 +56,8 @@ form {
   }
 
   p {
-    a {
+    span {
+      cursor: pointer;
       color: var(--color-primary);
     }
   }

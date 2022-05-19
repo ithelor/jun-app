@@ -8,7 +8,7 @@ const Profile = () => (
     <section className={styles.container}>
       <span>
         <UserIcon />
-        Юзернэйм
+        Пользователь
       </span>
       <Tabs />
     </section>
