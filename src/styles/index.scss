@@ -9,7 +9,7 @@
   --color-info-dark: #7d8da1;
 
   --color-background: #f6f6f9;
-  --color-background-alt: #eed8da;
+  --color-background-alt: #f0f0f0;
   --color-accent: #363949;
   --color-accent-alt: #dbdbdb;
   --color-dark: rgba(132, 139, 200, 0.18);
@@ -38,6 +38,7 @@
 
 [data-theme='dark'] {
   --color-background: #181a1e;
+  --color-background-alt: #292d33;
   --color-accent: #efeffd;
   --color-accent-alt: #2d2d33;
   --color-dark: rgba(0, 0, 0, 0.4);
@@ -76,9 +77,9 @@ button {
 
 main {
   margin-top: calc(var(--header-height) + 0px);
-  padding: 0 2.5%;
 
   .content {
+    padding: 0 2.5%;
     &:first-child {
       padding-top: 1rem;
     }

@@ -5,12 +5,13 @@ import Sidebar from 'layouts/Sidebar'
 import Footer from 'layouts/Footer'
 import Main from 'pages/Main'
 import News from 'pages/News'
+import Groups from 'pages/Groups'
+import Profile from 'pages/Profile'
 
-import ModalProvider from 'components/Modal/ModalProvider'
 import SidebarProvider from 'layouts/SidebarProvider'
+import ModalProvider from 'components/Modal/ModalProvider'
 
 import 'styles/index.scss'
-import Groups from 'pages/Groups'
 
 const App = () => (
   <BrowserRouter>
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/" element={<Main />} />
           <Route path="news" element={<News />} />
           <Route path="groups" element={<Groups />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
       </main>
 
@@ -34,4 +36,3 @@ const App = () => (
 )
 
 export default App
-
