@@ -4,7 +4,6 @@ import './AuthForm.module.scss'
 
 import { useNavigate } from "react-router-dom";
 import {login, register} from "../../api/auth/auth.service";
-import UserProvider from "./UserProvider";
 
 const AuthForm = () => {
     const [isNew, setIsNew] = React.useState(true);
