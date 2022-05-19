@@ -1,15 +1,19 @@
+import React from 'react'
 import { MdMenu as MenuIcon } from 'react-icons/md'
 
 import Logo from 'components/Logo'
 import NavMenu from 'components/NavMenu'
-import LoginButton from 'components/FancyButton'
+import FancyButton from 'components/FancyButton'
 import ThemeSwitcher from 'components/ThemeSwitcher'
 
-import styles from './Header.module.scss'
+import { ModalContext } from 'contexts/ModalContext'
 import { useSidebar } from 'hooks/useSidebar'
+
+import styles from './Header.module.scss'
 
 const Header = () => {
   const { sidebarOpen, setSidebarOpen } = useSidebar()
+  const { isModalOpen, setIsModalOpen } = React.useContext(ModalContext)
 
   return (
     <header className={styles.container}>
@@ -23,7 +27,7 @@ const Header = () => {
       <div className={styles.hideOnMobile}>
         <NavMenu />
         <ThemeSwitcher />
-        <LoginButton />
+        <FancyButton title="Авторизация" onClick={() => setIsModalOpen(!isModalOpen)} />
       </div>
     </header>
   )

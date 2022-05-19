@@ -27,8 +27,7 @@ const dropIn = {
 
 interface IModal {
   handleClose: () => void
-  //   children: JSX.Element | JSX.Element[]
-  text: string
+  children: JSX.Element | JSX.Element[]
 }
 
 const Modal = (props: IModal) => (
@@ -41,7 +40,7 @@ const Modal = (props: IModal) => (
       animate="visible"
       exit="exit"
     >
-      {props.text}
+      {props.children}
 
       <button onClick={props.handleClose}>Close</button>
     </motion.div>

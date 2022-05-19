@@ -1,17 +1,27 @@
 import React from 'react'
+import { AnimatePresence } from 'framer-motion'
+
+import Modal from 'components/Modal'
 
 import { ModalContext } from 'contexts/ModalContext'
-import useModal from 'hooks/useModal'
 
 interface ISidebarProvider {
   children: React.ReactElement | React.ReactElement[]
 }
 
 const ModalProvider = (props: ISidebarProvider) => {
-  const { isModalOpen, openModal, closeModal } = useModal()
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
 
   return (
-    <ModalContext.Provider value={{ isModalOpen, openModal, closeModal }}>
+    <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
+      <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
+        {isModalOpen && (
+          <Modal handleClose={() => setIsModalOpen(false)}>
+            <p>f</p>
+          </Modal>
+        )}
+      </AnimatePresence>
+
       {props.children}
     </ModalContext.Provider>
   )
