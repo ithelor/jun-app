@@ -6,14 +6,18 @@ import NavMenu from 'components/NavMenu'
 import FancyButton from 'components/FancyButton'
 import ThemeSwitcher from 'components/ThemeSwitcher'
 
-import { ModalContext } from 'contexts/ModalContext'
 import { useSidebar } from 'hooks/useSidebar'
+import { ModalContext } from 'contexts/ModalContext'
+import { UserContext } from 'contexts/UserContext'
+import { logout } from 'api/auth/auth.service'
 
 import styles from './Header.module.scss'
 
 const Header = () => {
   const { sidebarOpen, setSidebarOpen } = useSidebar()
   const { isModalOpen, setIsModalOpen } = React.useContext(ModalContext)
+
+  const { user, setUser } = React.useContext(UserContext)
 
   return (
     <header className={styles.container}>
@@ -27,7 +31,17 @@ const Header = () => {
       <div className={styles.hideOnMobile}>
         <NavMenu />
         <ThemeSwitcher />
-        <FancyButton title="Авторизация" onClick={() => setIsModalOpen(!isModalOpen)} />
+        {user ? (
+          <FancyButton
+            title="Выйти"
+            onClick={() => {
+              logout()
+              setUser(null)
+            }}
+          />
+        ) : (
+          <FancyButton title="Авторизация" onClick={() => setIsModalOpen(!isModalOpen)} />
+        )}
       </div>
     </header>
   )
