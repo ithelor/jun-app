@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  svg {
+    width: 6rem;
+    fill: var(--color-primary);
+
+    // animation: spinner 0.005s linear infinite;
+    transition: fill var(--transition-duration) var(--transition-timing-function);
+  }
+
+  h2 {
+    color: var(--color-primary);
+
+    transition: color var(--transition-duration) var(--transition-timing-function);
+
+    span {
+      color: var(--color-info-dark);
+    }
+  }
+
+  &:hover {
+    svg {
+      fill: var(--color-info-dark);
+    }
+
+    h2 {
+      color: var(--color-info-dark);
+    }
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

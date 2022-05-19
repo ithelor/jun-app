@@ -1,0 +1,27 @@
+@use '~styles/partials/variables';
+
+.container {
+  display: none;
+  height: calc(100vh - var(--header-height));
+
+  background: var(--color-background);
+
+  transition: background var(--transition-duration) var(--transition-timing-function);
+
+  @media screen and (max-width: variables.$mobile-width) {
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    width: var(--sidebar-width);
+    left: calc(0px - var(--sidebar-width));
+
+    box-shadow: 1rem 3rem 4rem var(--color-dark);
+
+    transition: left var(--transition-duration) ease-in-out;
+
+    &.open {
+      left: 0;
+    }
+  }
+}

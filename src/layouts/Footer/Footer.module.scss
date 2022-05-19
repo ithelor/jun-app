@@ -1,0 +1,40 @@
+@use '~styles/partials/variables';
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 10%;
+
+  color: var(--color-accent);
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+
+  .share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+
+      &:first-child {
+        fill: #2787f5;
+      }
+
+      &:last-child {
+        fill: #24a2df;
+      }
+    }
+  }
+
+  @media screen and (max-width: variables.$mobile-width) {
+    margin-bottom: var(--header-height);
+  }
+}

@@ -1,0 +1,42 @@
+.container {
+  cursor: pointer;
+  width: 4.5rem;
+  height: 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--color-accent);
+  background: var(--color-dark);
+
+  border-radius: var(--border-radius);
+
+  svg {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.15rem;
+
+    transition: all var(--transition-duration) var(--transition-timing-function);
+
+    &.active {
+      fill: var(--color-secondary);
+      background: var(--color-primary);
+    }
+
+    &:first-child {
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+  }
+}

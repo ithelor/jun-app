@@ -1,0 +1,61 @@
+@use '~styles/partials/variables';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  height: var(--header-height);
+  box-shadow: 0 1px 10px 10px var(--color-dark);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+
+  padding: 1rem 2rem;
+
+  .sidebarToggler {
+    appearance: unset;
+    display: none;
+
+    svg {
+      fill: var(--color-accent);
+      background-color: var(--color-background);
+    }
+  }
+
+  .hideOnMobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: variables.$mobile-width) {
+    top: auto;
+    bottom: 0;
+
+    .logo {
+      margin: auto;
+    }
+
+    .sidebarToggler {
+      display: block;
+
+      svg {
+        font-size: 2rem;
+      }
+    }
+
+    .hideOnMobile {
+      display: none;
+    }
+  }
+
+  &.open {
+    display: none;
+  }
+}

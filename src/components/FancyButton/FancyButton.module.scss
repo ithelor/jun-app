@@ -1,0 +1,14 @@
+.container {
+  font-size: 1.05rem;
+  color: #efeffd;
+  background-color: var(--color-primary);
+
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+
+  transition: all var(--transition-duration) var(--transition-timing-function);
+
+  &:hover {
+    background-color: #f2994a;
+  }
+}

@@ -1,0 +1,23 @@
+.loader {
+  @keyframes loader {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  box-sizing: border-box;
+  width: 4em;
+  height: 4em;
+  margin: 2rem auto;
+
+  border-radius: 50%;
+  border: 0.15em solid var(--color-primary);
+  border-top-color: var(--color-background);
+
+  animation: loader 0.7s linear infinite;
+  transition: border var(--transition-duration) var(--transition-timing-function);
+
+  &.fillGrid {
+    grid-column: 1/-1;
+  }
+}

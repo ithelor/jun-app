@@ -1,0 +1,4 @@
+node_modules
+.env
+src/assets
+src/react-app-env.d.ts

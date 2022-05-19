@@ -1,0 +1,33 @@
+.about {
+  background-image: url('~assets/shared/Background1.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 51.45%; // (741 / 1440 * 100)
+}
+
+.path {
+  background-image: url('~assets/shared/Background2.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 45.48%; // (655 / 1440 * 100)
+
+  background-color: var(--color-background-alt);
+}
+
+.dance {
+  background-image: url('~assets/shared/Background3.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 28.02%; // (752 (622, 512) / 1827 * 100)
+
+  background-color: var(--color-background-alt);
+}
+
+.youth {
+  background-image: url('~assets/shared/Background4.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 41.66%; // (600 / 1440 * 100)
+
+  background-color: var(--color-background-alt);
+}
