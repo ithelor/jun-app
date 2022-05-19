@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+
+  .pane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      padding: 1.5rem;
+      border: 1px solid white;
+    }
+  }
+
+  .content {
+    background: white;
+    color: #282c34;
+    height: 10rem;
+    width: 18.5rem;
+  }
+
+  .active {
+    background: white;
+    color: #282c34;
+  }
+}

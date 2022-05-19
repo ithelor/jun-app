@@ -1,0 +1,63 @@
+form {
+  color: var(--color-accent);
+  padding: 1rem;
+
+  transition: all var(--transition-duration) var(--transition-timing-function);
+
+  h3 {
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: var(--color-background-alt);
+
+      transition: all var(--transition-duration) var(--transition-timing-function);
+
+      &:focus,
+      &:hover {
+        background-color: #ddd;
+        outline: none;
+      }
+    }
+  }
+
+  div {
+    button {
+      cursor: pointer;
+      width: 100%;
+
+      color: white;
+      background-color: var(--color-primary);
+
+      padding: 1rem 0;
+      margin: 0.5rem 0;
+      border: none;
+      opacity: 0.8;
+
+      border-radius: var(--border-radius);
+
+      transition: all var(--transition-duration) var(--transition-timing-function);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  p {
+    a {
+      color: var(--color-primary);
+    }
+  }
+}

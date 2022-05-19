@@ -41,8 +41,6 @@ const Modal = (props: IModal) => (
       exit="exit"
     >
       {props.children}
-
-      <button onClick={props.handleClose}>Close</button>
     </motion.div>
   </Backdrop>
 )
