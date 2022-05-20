@@ -8,12 +8,13 @@ import INews from 'interfaces/News.interface'
 
 import styles from './News.module.scss'
 import { getAll } from 'api/news/news.service'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 const News = () => {
-  const [isLoading, setIsLoading] = React.useState(true)
+  const navigate = useNavigate()
 
   const [news, setNews] = React.useState<INews[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const fetchStatic = async () => {
@@ -23,7 +24,10 @@ const News = () => {
     fetchStatic().finally(() => setIsLoading(false))
   }, [])
 
-  const navigate = useNavigate()
+  const handleClick = (path: string) => {
+    console.log(path)
+    navigate(path)
+  }
 
   const NewsItem = (props: INews) => (
     <li>
@@ -34,7 +38,7 @@ const News = () => {
           <span>{props.date}</span>
         </span>
         <p>{props.text}</p>
-        <button onClick={() => navigate(props.link)}>Читать далее</button>
+        <button onClick={() => handleClick(props.link)}>Читать далее</button>
       </div>
     </li>
   )

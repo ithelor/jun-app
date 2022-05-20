@@ -1,27 +1,45 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FaObjectGroup as DefaultIcon } from 'react-icons/fa'
 
 import Loader from 'components/Loader'
 import Searchbar from 'components/Searchbar'
 
-import { getGroups } from 'api/services/groups'
+import { getAll } from 'api/groups/groups.service'
 
 import IGroup from 'interfaces/Group.interface'
 
 import styles from './Groups.module.scss'
 
 const Groups = () => {
+  const navigate = useNavigate()
+
+  const [news, setNews] = React.useState<IGroup[]>([])
   const [isLoading, setIsLoading] = React.useState(true)
-  const [groups, getGroups] = React.useState<IGroup[]>([])
 
-  // React.useEffect(() => {
-  //   const fetchStatic = async () => {
-  //     setGroups((await getNews()).data)
-  //   }
+  React.useEffect(() => {
+    const fetchStatic = async () => {
+      setNews((await getAll()).data)
+    }
 
-  //   fetchStatic().finally(() => setIsLoading(false))
-  // }, [])
+    fetchStatic().finally(() => setIsLoading(false))
+  }, [])
 
-  const Card = (props: IGroup) => <article>{props.name}</article>
+  const Group = (props: IGroup) => (
+    <li>
+      <span className={styles.upper}>
+        <DefaultIcon />
+        <h4>{props.name}</h4>
+      </span>
+
+      <p>{props.desc}</p>
+
+      <span className={styles.controls}>
+        <button onClick={() => navigate('placeholder')}>Подробнее</button>
+        <button onClick={() => navigate('placeholder')}>Подать заявку</button>
+      </span>
+    </li>
+  )
 
   return (
     <div className="content">
@@ -32,7 +50,11 @@ const Groups = () => {
             <Loader />
           </div>
         ) : (
-          'text'
+          <ul>
+            {news.map((item, index) => (
+              <Group key={index} desc={item.desc} name={item.name} url={item.url} />
+            ))}
+          </ul>
         )}
       </section>
     </div>
