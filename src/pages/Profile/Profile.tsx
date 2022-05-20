@@ -15,7 +15,7 @@ const Profile = () => {
   return (
     <div className="content">
       <section className={styles.container}>
-        <span>
+        <span className={styles.user}>
           <UserIcon />
           {user ? user.userDto.name : 'Юзернэйм'}
         </span>

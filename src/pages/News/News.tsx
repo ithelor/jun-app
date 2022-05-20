@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaStickyNote as DefaultIcon } from 'react-icons/fa'
 
 import Loader from 'components/Loader'
 import Searchbar from 'components/Searchbar/Searchbar'
@@ -7,6 +8,7 @@ import INews from 'interfaces/News.interface'
 
 import styles from './News.module.scss'
 import { getAll } from 'api/news/news.service'
+import { useNavigate } from 'react-router'
 
 const News = () => {
   const [isLoading, setIsLoading] = React.useState(true)
@@ -21,7 +23,21 @@ const News = () => {
     fetchStatic().finally(() => setIsLoading(false))
   }, [])
 
-  const NewsItem = (props: INews) => <div className={styles.newsItem}>{props.pic}</div>
+  const navigate = useNavigate()
+
+  const NewsItem = (props: INews) => (
+    <li>
+      {props.pic ?? <DefaultIcon />}
+      <div className={styles.content}>
+        <span className={styles.upper}>
+          <h4>{props.title}</h4>
+          <span>{props.date}</span>
+        </span>
+        <p>{props.text}</p>
+        <button onClick={() => navigate(props.link)}>Читать далее</button>
+      </div>
+    </li>
+  )
 
   return (
     <div className="content">
@@ -33,11 +49,15 @@ const News = () => {
           </div>
         ) : (
           <ul>
-            {news.map((value, index) => (
-              <li key={index}>
-                {value.pic}
-                {value.title}
-              </li>
+            {news.map((item, index) => (
+              <NewsItem
+                key={index}
+                date={item.date}
+                link={item.link}
+                pic={item.pic}
+                text={item.text}
+                title={item.title}
+              />
             ))}
           </ul>
         )}

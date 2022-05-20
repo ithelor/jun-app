@@ -3,6 +3,7 @@
 .container {
   display: none;
   height: calc(100vh - var(--header-height));
+  z-index: 2;
 
   background: var(--color-background);
 

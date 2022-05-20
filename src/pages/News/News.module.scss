@@ -1,8 +1,69 @@
 .container {
+  color: var(--color-accent);
+
   .loader {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 400px;
+  }
+
+  ul {
+    padding: 1rem;
+
+    li {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      padding: 1rem 2rem;
+      gap: 2rem;
+
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+
+      svg {
+        color: var(--color-accent);
+
+        width: 9rem;
+        height: 9rem;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+
+        .upper {
+          display: flex;
+          justify-content: space-between;
+
+          h4 {
+          }
+
+          span {
+          }
+        }
+
+        p {
+        }
+
+        button {
+          cursor: pointer;
+          width: 7rem;
+
+          color: white;
+          background-color: var(--color-primary);
+
+          padding: 1rem 0;
+          margin: 0.5rem 0;
+          border: none;
+
+          border-radius: var(--border-radius);
+
+          transition: all var(--transition-duration) var(--transition-timing-function);
+        }
+      }
+    }
   }
 }
