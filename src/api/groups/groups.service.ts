@@ -38,3 +38,8 @@ export const changeGroup = (id: number, value: boolean) => {
 export const getAll = () => {
     return axios.get(API_URL + "getAll", {  });
 };
+
+export const getAllByUser = () => {
+    // @ts-ignore
+    return axios.get(API_URL + "getAllByUser", { headers: authHeader() });
+};
