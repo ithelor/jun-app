@@ -14,9 +14,9 @@ const UserProvider = (props: ISidebarProvider) => {
 
   React.useEffect(() => {
     const fetchData = () => {
-      setUser(JSON.parse(getCurrentUser()))
+      setUser((getCurrentUser()))
 
-      console.log(JSON.parse(getCurrentUser()))
+      console.log((getCurrentUser()))
     }
 
     fetchData()

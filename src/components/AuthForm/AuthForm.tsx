@@ -57,87 +57,87 @@ const AuthForm = () => {
   return (
     <form>
       {isNew ? (
-        <>
-          <h3>Регистрация</h3>
-          <div>
-            <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Имя"
-            />
-            <input
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              type="text"
-              placeholder="Фамилия"
-            />
-            <input
-              value={logins}
-              onChange={(e) => setLogins(e.target.value)}
-              type="text"
-              placeholder="Login"
-            />
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Email"
-            />
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Введите пароль"
-            />
-            <button
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault()
-                handleRegister({ e, name, lastName, login: logins, email, password })
-                navigate('profile', { replace: true })
-              }}
-            >
-              Зарегистрироваться
-            </button>
-          </div>
-          <p>
-            Уже зарегистрированы?
-            <span onClick={() => setIsNew(false)}> войти</span>
-          </p>
-        </>
+              <>
+                <h3>Авторизация</h3>
+                <div>
+                  <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      placeholder="Email"
+                  />
+                  <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      placeholder="Введите пароль"
+                  />
+                  <button
+                      type="submit"
+                      onClick={(e) => {
+                        //e.preventDefault()
+                        handleLogin({ e, username: email, password: password })
+                        navigate('profile', { replace: true })
+                      }}
+                  >
+                    Войти
+                  </button>
+                </div>
+                <p>
+                  Нет аккаунта?
+                  <span onClick={() => setIsNew(false)}> зарегистрироваться</span>
+                </p>
+              </>
       ) : (
-        <>
-          <h3>Авторизация</h3>
-          <div>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Email"
-            />
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Введите пароль"
-            />
-            <button
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault()
-                handleLogin({ e, username: email, password: password })
-                navigate('profile', { replace: true })
-              }}
-            >
-              Войти
-            </button>
-          </div>
-          <p>
-            Нет аккаунта?
-            <span onClick={() => setIsNew(true)}> зарегистрироваться</span>
-          </p>
-        </>
+          <>
+            <h3>Регистрация</h3>
+            <div>
+              <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  placeholder="Имя"
+              />
+              <input
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  type="text"
+                  placeholder="Фамилия"
+              />
+              <input
+                  value={logins}
+                  onChange={(e) => setLogins(e.target.value)}
+                  type="text"
+                  placeholder="Login"
+              />
+              <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  placeholder="Email"
+              />
+              <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="Введите пароль"
+              />
+              <button
+                  type="submit"
+                  onClick={(e) => {
+                    //e.preventDefault()
+                    handleRegister({ e, name, lastName, login: logins, email, password })
+                    navigate('profile', { replace: true })
+                  }}
+              >
+                Зарегистрироваться
+              </button>
+            </div>
+            <p>
+              Уже зарегистрированы?
+              <span onClick={() => setIsNew(true)}> войти</span>
+            </p>
+          </>
       )}
     </form>
   )
