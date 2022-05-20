@@ -14,12 +14,12 @@ import styles from './Groups.module.scss'
 const Groups = () => {
   const navigate = useNavigate()
 
-  const [news, setNews] = React.useState<IGroup[]>([])
+  const [groups, newGroups] = React.useState<IGroup[]>([])
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const fetchStatic = async () => {
-      setNews((await getAll()).data)
+      newGroups((await getAll()).data)
     }
 
     fetchStatic().finally(() => setIsLoading(false))
@@ -51,7 +51,7 @@ const Groups = () => {
           </div>
         ) : (
           <ul>
-            {news.map((item, index) => (
+            {groups.map((item, index) => (
               <Group key={index} desc={item.desc} name={item.name} url={item.url} />
             ))}
           </ul>

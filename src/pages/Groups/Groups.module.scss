@@ -12,11 +12,15 @@
     padding: 1rem;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 20px;
 
     li {
+      // max-width: 800px;
       padding: 1rem 2rem;
+
+      // margin-left: auto;
+      // margin-right: auto;
 
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
@@ -36,15 +40,13 @@
         gap: 1rem;
 
         svg {
-          width: 3rem;
-          height: 3rem;
-        }
-
-        h4 {
+          width: 2rem;
+          height: 2rem;
         }
       }
 
       p {
+        text-align: center;
       }
 
       .controls {
@@ -59,7 +61,7 @@
           color: white;
           background-color: var(--color-primary);
 
-          padding: 1rem 0;
+          padding: 0.75rem 0;
           margin: 0.5rem 0;
           border: none;
 
